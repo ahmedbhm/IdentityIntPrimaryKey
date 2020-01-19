@@ -40,3 +40,4 @@ C:\Users\ahmed\Desktop\IdentityIntPrimaryKey\IdentityIntPrimaryKey\obj\Debug\Ide
 C:\Users\ahmed\Desktop\IdentityIntPrimaryKey\IdentityIntPrimaryKey\obj\Debug\IdentityIntPrimaryKey.pdb
 C:\Users\ahmed\Desktop\IdentityIntPrimaryKey\IdentityIntPrimaryKey\obj\Debug\IdentityIntPrimaryKey.Migrations.initialdb.resources
 C:\Users\ahmed\Desktop\IdentityIntPrimaryKey\IdentityIntPrimaryKey\obj\Debug\IdentityIntPrimaryKey.csproj.GenerateResource.Cache
+C:\Users\ahmed\Desktop\IdentityIntPrimaryKey\IdentityIntPrimaryKey\obj\Debug\IdentityIntPrimaryKey.Migrations.testnewcolumninusertable.resources

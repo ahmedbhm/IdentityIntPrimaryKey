@@ -16,6 +16,7 @@ namespace IdentityIntPrimaryKey.Models
 {
     public class ApplicationUser : IdentityUser<int, CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
+        public string LatineName { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser, int> manager)
         {
             // Note the authenticationType must match the one defined in
@@ -82,12 +83,10 @@ namespace IdentityIntPrimaryKey.Models
             : base(store)
         {
         }
-
-        public static ApplicationUserManager Create(
-            IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
+        /*
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(
-                new CustomUserStore(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new CustomUserStore(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames 
             manager.UserValidator = new UserValidator<ApplicationUser, int>(manager)
             {
@@ -106,17 +105,15 @@ namespace IdentityIntPrimaryKey.Models
             // Register two factor authentication providers. This application uses Phone 
             // and Emails as a step of receiving a code for verifying the user 
             // You can write your own provider and plug in here. 
-            manager.RegisterTwoFactorProvider("PhoneCode",
-                new PhoneNumberTokenProvider<ApplicationUser, int>
-                {
-                    MessageFormat = "Your security code is: {0}"
-                });
-            manager.RegisterTwoFactorProvider("EmailCode",
-                new EmailTokenProvider<ApplicationUser, int>
-                {
-                    Subject = "Security Code",
-                    BodyFormat = "Your security code is: {0}"
-                });
+            manager.RegisterTwoFactorProvider("PhoneCode", new PhoneNumberTokenProvider<ApplicationUser, int>
+            {
+                MessageFormat = "Your security code is: {0}"
+            });
+            manager.RegisterTwoFactorProvider("EmailCode", new EmailTokenProvider<ApplicationUser, int>
+            {
+                Subject = "Security Code",
+                BodyFormat = "Your security code is: {0}"
+            });
             //manager.EmailService = new EmailService();
             //manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
@@ -127,7 +124,7 @@ namespace IdentityIntPrimaryKey.Models
                         dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
-        }
+        }*/
     }
 
 }

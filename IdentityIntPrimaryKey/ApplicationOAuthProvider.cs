@@ -31,8 +31,11 @@ namespace IdentityIntPrimaryKey
                 identity.AddClaim(new Claim("LoggedOn", DateTime.Now.ToString()));
                 identity.AddClaim(new Claim("Id", user.Id.ToString()));
                 var userRoles = manager.GetRoles(user.Id);
-                var additionalData = new AuthenticationProperties(new Dictionary<string, string>());
-
+                var additionalData = new AuthenticationProperties(new Dictionary<string, string>() { 
+                  {"Id",user.Id.ToString()},
+                   {"Username", user.UserName},
+                    {"role", Newtonsoft.Json.JsonConvert.SerializeObject(userRoles)}
+                });
                 var token = new AuthenticationTicket(identity, additionalData);
                 context.Validated(token);
             }
